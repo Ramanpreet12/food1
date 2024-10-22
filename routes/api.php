@@ -49,6 +49,7 @@ Route::middleware('auth:sanctum')->group(function () {
             //api controller
             Route::post('/restaurants/store', [RestrauntController::class, 'store']);
             Route::get('/restaurants/get', [RestrauntController::class, 'get']);
+            Route::get('/restaurants/edit/{id}', [RestrauntController::class, 'edit']);
 
 
 

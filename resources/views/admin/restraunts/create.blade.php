@@ -49,7 +49,7 @@
                                     <input type="text" class="form-control" id="speciality" placeholder="speciality" name="speciality" value="{{ old('speciality') }}"/>
                                   </div>
                             </div>
-                                <div class="form-group col-6">
+                                {{-- <div class="form-group col-6">
                                     <div class="mb-6">
                                         <label class="form-label" for="logo">Logo</label>
                                         <input type="file" class="form-control" id="logo" name="logo" />
@@ -57,7 +57,7 @@
                                         <span class="text-danger"> {{ $message }}</span>
                                     @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <hr>
@@ -369,7 +369,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <div class="mb-6">
-                                        <label class="form-label" for="restaurant_images">Restaurant Images</label>
+                                        <label class="form-label" for="restaurant_images">Restaurant Images <small>less than 10 MB</small></label>
                                         <input type="file" class="form-control" id="restaurant_images"
                                             name="restaurant_images" />
                                             @error('restaurant_images')
@@ -379,10 +379,10 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <div class="mb-6">
-                                        <label class="form-label" for="featured_img">Featured Image</label>
-                                        <input type="file" class="form-control" id="featured_img"
-                                            name="featured_img" />
-                                            @error('featured_img')
+                                        <label class="form-label" for="featured_image">Featured Image <small>less than 10 MB</small></label>
+                                        <input type="file" class="form-control" id="featured_image"
+                                            name="featured_image" />
+                                            @error('featured_image')
                                             <span class="text-danger"> {{ $message }}</span>
                                         @enderror
                                     </div>
@@ -428,3 +428,14 @@
         </div>
     </div>
 @endsection
+{{-- <script>
+    document.getElementById('form').onsubmit = function(event) {
+        var fileInput = document.getElementById('file-input');
+        var file = fileInput.files[0];
+
+        if (file.size > 10 * 1024 * 1024) { // 10MB in bytes
+            alert('File size must be less than 10MB');
+            event.preventDefault(); // Prevent form submission
+        }
+    };
+</script> --}}

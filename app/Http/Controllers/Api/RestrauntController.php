@@ -19,7 +19,7 @@ class RestrauntController extends Controller
             try {
                 $logoFilename = store_image($request->file('logo'), 'restaurants/logos');
                 $restaurantImage = store_image($request->file('restaurant_images'), 'restaurants/images');
-                $featuredImage = store_image($request->file('featured_img'), 'restaurants/featured');
+                $featuredImage = store_image($request->file('featured_image'), 'restaurants/featured');
             } catch (\Exception $e) {
                 return redirect()->back()->with('error', 'Failed to upload image: ' . $e->getMessage());
             }
@@ -52,7 +52,7 @@ class RestrauntController extends Controller
                 'average_cost_for_per_person' => $request->average_cost_for_per_person,
                 'tax_gst_number' => $request->tax_gst_number,
                 'business_license' => $request->business_license,
-                'logo' => $logoFilename,
+                // 'logo' => $logoFilename,
                 'restaurant_images' => $restaurantImage,
                 'featured_image' => $featuredImage,
             ]);
@@ -64,13 +64,12 @@ class RestrauntController extends Controller
                     'message' => 'Restaurant created successfully',
                     'data' => $restaurant,
                     'images' => [
-                        'logo' => asset("storage/restaurants/logos/{$logoFilename}"),
+                        // 'logo' => asset("storage/restaurants/logos/{$logoFilename}"),
                         'restaurant_image' => asset("storage/restaurants/images/{$restaurantImage}"),
                         'featured_image' => asset("storage/restaurants/featured/{$featuredImage}")
                     ]
                 ], 201);
             }
-
         } catch (\Exception $e) {
             // Delete uploaded images if restaurant creation fails
             delete_image($logoFilename, 'restaurants/logos');
@@ -95,7 +94,7 @@ class RestrauntController extends Controller
 
             // Loop through each restaurant and append image URLs
             foreach ($restaurants as $restaurant) {
-                $restaurant->logo = asset("storage/restaurants/logos/{$restaurant->logo}");
+                // $restaurant->logo = asset("storage/restaurants/logos/{$restaurant->logo}");
                 $restaurant->restaurant_images = asset("storage/restaurants/images/{$restaurant->restaurant_images}");
                 $restaurant->featured_image = asset("storage/restaurants/featured/{$restaurant->featured_image}");
             }
@@ -112,7 +111,38 @@ class RestrauntController extends Controller
                 'error' => $e->getMessage(),
             ], 500);
         }
-
     }
 
+    public function edit($id)
+    {
+
+        try {
+            $restaurant = Restaurant::find($id);
+            if ($restaurant) {
+                return response()->json([
+                    'status' => true,
+                    'message' => 'Restaurant get successfully',
+                    'data' => $restaurant,
+                    'images' => [
+                        // 'logo' => asset("storage/restaurants/logos/{$restaurant->logo}"),
+                        'restaurant_image' => asset("storage/restaurants/images/{$restaurant->restaurant_images}"),
+                        'featured_image' => asset("storage/restaurants/featured/{$restaurant->featured_image}")
+                    ]
+                ], 201);
+            } else {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Failed to get restaurant',
+                    'error' => 'Id not found'
+                ], 500);
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Failed to get restaurants',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+
+    }
 }

@@ -15,11 +15,12 @@ class RestaurantRequest extends FormRequest
 
     public function rules()
     {
-        return [
+        $rules= [
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'speciality' => 'required|string',
-            'logo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'status' => 'nullable',
+            // 'logo' => 'image|mimes:jpeg,png,jpg|max:10240',
             'address' => 'required|string',
             'city' => 'required|string|max:255',
             'state' => 'required|string|max:255',
@@ -38,23 +39,35 @@ class RestaurantRequest extends FormRequest
             'opening_time' => 'required|string',
             'closing_time' => 'required|string',
             'days_of_operation' => 'required|string',
-            'restraunt_images' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'featured_img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'restraunt_images' => 'nullable|image|mimes:jpeg,png,jpg|max:10240', // 10240 KB = 10 MB',
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg|max:10240', // 10240 KB = 10 MB',
             'tax_gst_number' => 'nullable|string|max:50',
             'business_license' => 'nullable|string|max:50',
         ];
+
+         // Modify unique validation for update
+         if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            $restaurant = $this->route('restaurants');
+            $rules['email'] = 'required|email|unique:restaurants,email,' . $this->id;
+            $rules['owner_email'] = 'required|email|unique:restaurants,owner_email,' . $this->id;
+        } else {
+            $rules['email'] = 'required|email|unique:restaurants,email';
+            $rules['owner_email'] = 'required|email|unique:restaurants,owner_email';
+        }
+        return $rules;
+
     }
 
     public function messages()
     {
         return [
-            'logo.required' => 'Restaurant logo is required',
+            // 'logo.required' => 'Restaurant logo is required',
             'logo.image' => 'Logo must be an image file',
             'logo.mimes' => 'Logo must be a jpeg, png, or jpg file',
-            'restraunt_images.required' => 'Restaurant images are required',
+            // 'restraunt_images.required' => 'Restaurant images are required',
             'restraunt_images.image' => 'Restaurant images must be image files',
-            'featured_img.required' => 'Featured image is required',
-            'featured_img.image' => 'Featured image must be an image file',
+            // 'featured_image.required' => 'Featured image is required',
+            'featured_image.image' => 'Featured image must be an image file',
             'delivery_radius.numeric' => 'Delivery radius must be a number',
             'latitude.between' => 'Latitude must be between -90 and 90',
             'longitude.between' => 'Longitude must be between -180 and 180',

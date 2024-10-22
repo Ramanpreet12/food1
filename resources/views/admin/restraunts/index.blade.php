@@ -44,7 +44,7 @@
                                             src="{{ asset('storage/restaurants/featured/' . $restaurant->featured_image) }}"
                                             alt="" srcset="" width="75px" height="60px"></td>
                                     <td>{{ $restaurant->name }}</td>
-                                    <td>{{ $restaurant->speciality }}</td>
+                                    <td>{{ Str::limit( $restaurant->speciality ,40 ,'...')}}</td>
                                     <td>{{ $restaurant->address }},{{ Str::ucfirst($restaurant->city) }}, {{ Str::ucfirst($restaurant->state) }}, {{ $restaurant->country }}, {{ $restaurant->postal_code }}
                                     </td>
                                     <td>{{ $restaurant->email }}</td>
