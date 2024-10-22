@@ -47,9 +47,8 @@ Route::middleware('auth:sanctum')->group(function () {
         // Restaurants create
 
             //api controller
-            Route::post('/restaurants/create', [RestrauntController::class, 'store']);
-            // Route::post('/restaurants/create', [\App\Http\Controllers\Backend\RestrauntController::class, 'store']);
-            // Route::post('/restaurants/create', [RestrauntController::class, 'store']);
+            Route::post('/restaurants/store', [RestrauntController::class, 'store']);
+            Route::get('/restaurants/get', [RestrauntController::class, 'get']);
 
 
 

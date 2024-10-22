@@ -7,8 +7,10 @@
                 <div class="card mb-6">
                     @include('alert_messages')
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Add Restraunt</h3>
-                        <small class="text-body float-end">Default label</small>
+                        <h3 class="mb-0">Add Restaurant</h3>
+                        <a class="text-body float-end" href="{{ route('admin.restaurants.index') }}">
+                            <button class="btn btn-primary"> Back</button>
+                        </a>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
@@ -367,10 +369,10 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <div class="mb-6">
-                                        <label class="form-label" for="restraunt_images">Restaurant Images</label>
-                                        <input type="file" class="form-control" id="restraunt_images"
-                                            name="restraunt_images" />
-                                            @error('restraunt_images')
+                                        <label class="form-label" for="restaurant_images">Restaurant Images</label>
+                                        <input type="file" class="form-control" id="restaurant_images"
+                                            name="restaurant_images" />
+                                            @error('restaurant_images')
                                             <span class="text-danger"> {{ $message }}</span>
                                         @enderror
                                     </div>

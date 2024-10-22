@@ -17,7 +17,8 @@ class RestrauntController extends Controller
      */
     public function index()
     {
-        return view('admin.restraunts.index');
+        $restaurants = Restaurant::all();
+        return view('admin.restraunts.index', compact('restaurants'));
     }
 
     /**

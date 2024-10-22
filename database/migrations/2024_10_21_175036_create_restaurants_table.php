@@ -52,7 +52,7 @@ return new class extends Migration
             // $table->decimal('min_order_amount', 8, 2)->nullable();     // Minimum Order Amount
             $table->decimal('delivery_fee', 8, 2)->nullable();         // Delivery Fee
             $table->string('delivery_time')->nullable();               // Estimated Delivery Time
-            $table->string('restraunt_images')->nullable();                      // Restaurant Images
+            $table->string('restaurant_images')->nullable();                      // Restaurant Images
             $table->string('featured_image')->nullable();              // Featured Image
             // $table->json('payment_methods')->nullable();               // Accepted Payment Methods
             // $table->string('bank_details')->nullable();                // Bank Details (for payouts)

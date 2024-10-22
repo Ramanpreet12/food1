@@ -119,7 +119,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.restaurants.create') }}" class="menu-link">
+                    <a href="{{ route('admin.restaurants.index') }}" class="menu-link">
                         <div class="text-truncate" data-i18n="Without menu">Restaurants</div>
                     </a>
                 </li>
@@ -513,4 +513,4 @@
             </a>
         </li>
     </ul>
-</aside> 
+</aside>
