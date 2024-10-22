@@ -145,4 +145,8 @@ class RestrauntController extends Controller
         }
 
     }
+
+    public function update(){
+        dd('update restraunt');
+    }
 }

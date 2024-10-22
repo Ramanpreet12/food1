@@ -13,14 +13,14 @@
 					"name": "Restaurant",
 					"item": [
 						{
-							"name": "Create Restaurant",
+							"name": "create",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "30|2NKj9xko9L2595pVJ5hr7BT7bofyIW9k1GcByQyla2a9e23a",
+											"value": "28|ZfcTK7WQ55iL4lgfDejq6BZskeV5mq3vlwDnSgXA43426e5c",
 											"type": "string"
 										}
 									]
@@ -97,7 +97,7 @@
 										},
 										{
 											"key": "email",
-											"value": "contact1111111@pastapalace.com",
+											"value": "contact@pastapalace.com",
 											"type": "text"
 										},
 										{
@@ -117,7 +117,7 @@
 										},
 										{
 											"key": "owner_email",
-											"value": "mario.111@pastapalace.com",
+											"value": "mario.rossi@pastapalace.com",
 											"type": "text"
 										},
 										{
@@ -178,7 +178,7 @@
 									]
 								},
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/admin/restaurants/store",
+									"raw": "http://127.0.0.1:8000/api/admin/restaurants/create",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -191,114 +191,7 @@
 										"api",
 										"admin",
 										"restaurants",
-										"store"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "List Restaurants",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "30|2NKj9xko9L2595pVJ5hr7BT7bofyIW9k1GcByQyla2a9e23a",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/admin/restaurants/get",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"admin",
-										"restaurants",
-										"get"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Show Restaurant",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "31|utTpNP5pEzQ56l4t6quGj8scVDEHBoxTt1hFqzTj1affe6a3",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/admin/restaurants/edit/2",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"admin",
-										"restaurants",
-										"edit",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Restaurant",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "31|utTpNP5pEzQ56l4t6quGj8scVDEHBoxTt1hFqzTj1affe6a3",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PUT",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/admin/restaurants/update/2",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"admin",
-										"restaurants",
-										"update",
-										"2"
+										"create"
 									]
 								}
 							},

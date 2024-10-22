@@ -50,6 +50,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::post('/restaurants/store', [RestrauntController::class, 'store']);
             Route::get('/restaurants/get', [RestrauntController::class, 'get']);
             Route::get('/restaurants/edit/{id}', [RestrauntController::class, 'edit']);
+            Route::put('/restaurants/update/{id}', [RestrauntController::class, 'update']);
 
 
 
