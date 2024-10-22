@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,26 +12,11 @@ use App\Http\Requests\RestaurantRequest;
 
 class RestrauntController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('admin.restraunts.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('admin.restraunts.create');
-    }
-
-
-    // public function store(Request $request)
     public function store(RestaurantRequest $request)
     {
+
+
+
         try {
             // Store images
             try {
@@ -101,7 +86,7 @@ class RestrauntController extends Controller
             delete_image($restaurantImage, 'restaurants/images');
             delete_image($featuredImage, 'restaurants/featured');
 
-            if ($request->expectsJson()|| $request->is('api/*')) {
+            if ($request->expectsJson() || $request->is('api/*')) {
                 return response()->json([
                     'status' => false,
                     'message' => 'Failed to create restaurant',
@@ -114,39 +99,5 @@ class RestrauntController extends Controller
                 ->withInput()
                 ->with('error', 'Failed to create restaurant: ' . $e->getMessage());
         }
-    }
-
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

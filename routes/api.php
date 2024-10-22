@@ -6,7 +6,9 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\DeliveryController;
+use App\Http\Controllers\Api\RestrauntController;
 
+// use App\Http\Controllers\Backend\RestrauntController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -19,7 +21,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //admin routes
 Route::post('/admin/login', [AdminController::class, 'login'])
-->name('admin.login');
+    ->name('admin.login');
 
 // Protected routes
 Route::middleware('auth:sanctum')->group(function () {
@@ -41,6 +43,16 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [AdminController::class, 'logout']);
         Route::get('/dashboard', [AdminController::class, 'dashboard']);
         Route::get('/profile', [AdminController::class, 'profile']);
+
+        // Restaurants create
+
+            //api controller
+            Route::post('/restaurants/create', [RestrauntController::class, 'store']);
+            // Route::post('/restaurants/create', [\App\Http\Controllers\Backend\RestrauntController::class, 'store']);
+            // Route::post('/restaurants/create', [RestrauntController::class, 'store']);
+
+
+
     });
 
     // Delivery Boy Routes
@@ -54,4 +66,3 @@ Route::middleware('auth:sanctum')->group(function () {
     //     Route::get('/restaurants', [CustomerController::class, 'restaurants']);
     // });
 });
-

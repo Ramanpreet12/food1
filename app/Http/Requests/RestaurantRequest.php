@@ -65,7 +65,7 @@ class RestaurantRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        if ($this->expectsJson()) {
+        if ($this->expectsJson() || $this->is('api/*')) {
             throw new HttpResponseException(response()->json([
                 'status' => false,
                 'message' => 'Validation errors',

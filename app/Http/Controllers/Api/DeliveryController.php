@@ -13,4 +13,8 @@ class DeliveryController extends Controller
     public function profile(){
         return 'delivery boy profile';
     }
+
+    public function store(){
+        return 'store';
+    }
 }

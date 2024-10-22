@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "8206100d-531b-498b-bc82-0efed4f3b96e",
+		"name": "food",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34682444"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Restaurant",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "28|ZfcTK7WQ55iL4lgfDejq6BZskeV5mq3vlwDnSgXA43426e5c",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Pasta Palace",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "A cozy Italian restaurant offering a wide variety of pasta dishes and classic Italian cuisine. Known for its fresh ingredients and homemade sauces",
+											"type": "text"
+										},
+										{
+											"key": "speciality",
+											"value": "Pizza, Pasta, Noodles",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "1234 Main Street",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "New York",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "New York",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "10001",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "United States",
+											"type": "text"
+										},
+										{
+											"key": "delivery_radius",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": "40.712776",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "-74.005974",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "6565465466",
+											"type": "text"
+										},
+										{
+											"key": "secondary_phone",
+											"value": "0353079083",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "contact@pastapalace.com",
+											"type": "text"
+										},
+										{
+											"key": "website",
+											"value": "https://www.pastapalace.com",
+											"type": "text"
+										},
+										{
+											"key": "owner_name",
+											"value": "Mario Rossi",
+											"type": "text"
+										},
+										{
+											"key": "owner_contact_number",
+											"value": "0353079083",
+											"type": "text"
+										},
+										{
+											"key": "owner_email",
+											"value": "mario.rossi@pastapalace.com",
+											"type": "text"
+										},
+										{
+											"key": "opening_time",
+											"value": "10:00 AM",
+											"type": "text"
+										},
+										{
+											"key": "closing_time",
+											"value": "11:00 PM",
+											"type": "text"
+										},
+										{
+											"key": "days_of_operation",
+											"value": "Monday-Sunday",
+											"type": "text"
+										},
+										{
+											"key": "delivery_fee",
+											"value": "40",
+											"type": "text"
+										},
+										{
+											"key": "delivery_time",
+											"value": "20 mins",
+											"type": "text"
+										},
+										{
+											"key": "average_cost_for_per_person",
+											"value": "200",
+											"type": "text"
+										},
+										{
+											"key": "tax_gst_number",
+											"value": "35435435",
+											"type": "text"
+										},
+										{
+											"key": "business_license",
+											"value": "54543",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "postman-cloud:///1ef77197-29e0-40e0-9992-d859dc828f0d"
+										},
+										{
+											"key": "restraunt_images",
+											"type": "file",
+											"src": "postman-cloud:///1ef90442-c284-4ff0-b58e-51701a99ccfa"
+										},
+										{
+											"key": "featured_img",
+											"type": "file",
+											"src": "postman-cloud:///1ef90443-327b-41b0-b039-61452581da08"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/admin/restaurants/create",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"restaurants",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
